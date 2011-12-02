@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding='windows-1252' ?>
+<project name="hbase-solr-dataimport" default="all" basedir=".">
+
+    <property name="BaseDir" value="." />
+    <property name="ClassDir" value="${BaseDir}/bin" />     
+    <property name="BuildDir" value="${BaseDir}" />
+    
+    <property name="Module" value="hbase-solr-dataimport" />
+
+    <target name="all">
+        <antcall target="generate-jar"/>
+    </target>
+    
+
+
+    <target name="generate-jar">
+    	
+        <loadproperties srcFile="${BaseDir}/META-INF/MANIFEST.MF" />	
+        <property name="build.version" value="${Bundle-Version}" />
+        	
+        <zip
+            destfile="${BuildDir}/${Module}-${build.version}.jar"
+            basedir="${ClassDir}"
+            excludes="**/*.xml,**/*.dtd,**/*.ice,**/log4j.properties">
+            <fileset dir="${BaseDir}" includes="META-INF/MANIFEST.MF"/>
+        </zip>
+    </target>
+        
+</project>
