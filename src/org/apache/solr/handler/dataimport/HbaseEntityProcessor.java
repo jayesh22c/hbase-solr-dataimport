@@ -52,12 +52,11 @@ public class HbaseEntityProcessor extends EntityProcessorBase {
             HbaseQuery q = new HbaseQuery();
             String tableName = context.getEntityAttribute(TABLE_NAME);
             q.setTableName(tableName);
+            // ${dataimporter.last_index_time}
             String startRow = context.getEntityAttribute(START_ROW);
-            String stopRow = context.getEntityAttribute(STOP_ROW);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 startRow = context.replaceTokens(startRow);
-                stopRow = context.replaceTokens(stopRow);
                 Date startRowDate = sdf.parse(startRow);
                 q.setStartRow(String.valueOf(startRowDate.getTime()));
                 q.setStopRow(null);
