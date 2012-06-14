@@ -24,8 +24,7 @@ In the example we're importing into Solr data from a table of "messages" in HBas
             columns="message|msg_date,
                      message|msg_descr,
 		     message|msg_level"
-            startRow="${dataimporter.last_index_time}"
-	    stopRow="${dataimporter.last_index_time}"
+            startRow="${dataimporter.last_index_time}"	   
             query=""
             deltaImportQuery=""
             deltaQuery="" >
