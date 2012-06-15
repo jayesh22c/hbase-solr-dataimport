@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * 
+ * Prepare the query
  */
 public class HbaseQuery {
 
